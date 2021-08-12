@@ -1,0 +1,15 @@
+{
+  "name": "2021_algo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/portfolio-y0711/2021_algo.git",
+  "author": "portfolio-y0711 <portfolio-y0711@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "create": "for i in {1..5}; do mkdir _0${i}_ ; done;",
+    "create:js": "for i in {1..5}; do (cd _0${i}_ && touch index.js) ; done;",
+    "create:py": "for i in {1..5}; do (cd _0${i}_ && touch index.py) ; done;",
+    "create:kt": "for i in {1..5}; do (cd _0${i}_ && touch index.kt) ; done;",
+    "create:java": "for i in {1..5}; do (cd _0${i}_ && touch index.java) ; done;"
+  }
+}
