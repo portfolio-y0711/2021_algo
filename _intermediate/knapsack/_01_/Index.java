@@ -23,3 +23,40 @@
 // 5 12
 
 // 14
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.LinkedList;
+
+public class Index {
+  public static void main(String[] args) throws Exception {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    int[] NK = Arrays.stream(br.readLine().split(" ")).mapToInt(s -> Integer.parseInt(s)).toArray();
+    int N = NK[0];
+    int K = NK[1];
+    int[] weights = new int[N + 1];
+    int[] values = new int[N + 1];
+
+    int[][] dp = new int[N + 1][K + 1];
+
+    for (int i = 1; i < N + 1; i++) {
+      int[] wv = Arrays
+        .stream(br.readLine().split(" "))
+        .mapToInt(s -> Integer.parseInt(s)).toArray();
+      int w = wv[0];
+      int v = wv[1];
+      weights[i] = w;
+      values[i] = v;
+    }
+
+    for (int i = 1; i < N + 1; i++) {
+      for (int j = 1; j < K + 1; j++) {
+        if (j >= weights[i])  {
+          dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - weights[i]] + values[i]);
+        }
+      }
+    }
+    System.out.println(dp[N][K]);
+  } 
+}

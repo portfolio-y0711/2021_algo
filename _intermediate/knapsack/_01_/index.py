@@ -23,3 +23,20 @@
 # 5 12
 
 # 14
+
+n, k = map(int, input().split())
+dp = [[0] * (k + 1) for i in range(n + 1)]
+weights = [0] * (n + 1)
+values = [0] * (n + 1)
+
+for i in range(1, n + 1):
+  w,v = map(int, input().split())
+  weights[i] = w
+  values[i] = v
+
+for i in range(1, n + 1):
+  for j in range(1, k + 1):
+    if j >= weights[i]:
+      dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weights[i]] + values[i])
+
+print(dp[n][k])
