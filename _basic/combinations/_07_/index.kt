@@ -41,12 +41,15 @@
 // 예제 출력 3 
 // 1231 1232 1233 1234
 
+fun main(args: Array<String>) {
+  class Solution {
+    fun solution() {
 
-const solution = () => {
+    }
+  }
+  
+  Solution()
+    .solution(
 
-
+    )
 }
-
-solution(
-
-)
